@@ -1,0 +1,20 @@
+import requests
+
+def hello_world():
+    print("👋 Hello from your GitHub bot test project!")
+
+def fetch_github_api_status():
+    url = "https://api.github.com"
+    try:
+        response = requests.get(url, timeout=5)
+        if response.status_code == 200:
+            print("✅ GitHub API is reachable")
+            print("Message:", response.json().get("current_user_url"))
+        else:
+            print("⚠️ GitHub API error:", response.status_code)
+    except Exception as e:
+        print("❌ Error:", str(e))
+
+if name == "main":
+    hello_world()
+    fetch_github_api_status()
